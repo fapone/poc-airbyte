@@ -78,6 +78,21 @@ Final configuration:<br><br>
 Sync and strategy:<br><br>
 <img width="1638" alt="image" src="https://user-images.githubusercontent.com/32913011/210252261-c4282143-a31e-4558-b67f-586039600d16.png">
 <br><br>
+Sync history:<br><br>
+<img width="1644" alt="image" src="https://user-images.githubusercontent.com/32913011/210252364-0625755f-f9bf-4532-b2a4-030be3caa6da.png">
+<br><br>
+Transfer strategy:<br><br>
+<img width="1563" alt="image" src="https://user-images.githubusercontent.com/32913011/210252444-e8f5d996-178c-4547-a30a-87e07b3fa8c2.png">
+<br><br>
+<h4>Setting up CDC for MSSQL:</h4>
+MS SQL Server provides some built-in stored procedures to enable CDC.<br><br>
+To enable CDC, a SQL Server administrator with the necessary privileges (db_owner or sysadmin) must first run a query to enable CDC at the database level.<br><br>
+&nbsp;&nbsp;&nbsp;USE {database name}<br>
+&nbsp;&nbsp;&nbsp;GO<br>
+&nbsp;&nbsp;&nbsp;EXEC sys.sp_cdc_enable_db<br>
+&nbsp;&nbsp;&nbsp;GO<br>
+
+
 
 
 
