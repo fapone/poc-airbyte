@@ -19,7 +19,7 @@ Once you see an Airbyte banner, the UI is ready to go at http://localhost:8000! 
 Alternatively, if you have an Airbyte Cloud invite, just follow these steps. <br>
 source: https://docs.airbyte.com/quickstart/deploy-airbyte/?_ga=2.22120568.252537617.1670875979-1797733114.1669813361
 
-<h3>1 - Configuration: </h3> <br>
+<h3>2 - Configuration: </h3> <br>
 <h4>Add a Source:</h4>
 You can either follow this tutorial from the onboarding or through the UI, where you can first navigate to the Sources tab on the left bar. <br><br>
 Our demo source will pull data from an external API, which will pull down the information on one specified Pokémon. <br><br>
@@ -90,7 +90,49 @@ To enable CDC, a SQL Server administrator with the necessary privileges (db_owne
 &nbsp;&nbsp;&nbsp;USE {database name}<br>
 &nbsp;&nbsp;&nbsp;GO<br>
 &nbsp;&nbsp;&nbsp;EXEC sys.sp_cdc_enable_db<br>
-&nbsp;&nbsp;&nbsp;GO<br>
+&nbsp;&nbsp;&nbsp;GO<br><br>
+Evidence that stored procedure was executed.<br><br>
+<img width="451" alt="image" src="https://user-images.githubusercontent.com/32913011/210253272-d436c537-0d21-4ba8-bb76-faa96555df4b.png">
+<br><br>
+<h3>3 - Test and validation: </h3> <br>
+<h4>Test 1: CDC Test</h4>
+I ran a test to validate the functionality of the CDC where I changed a specific field in the SQL Server database and this change was reflected in Big Query.<br><br>
+It was observed that the test was successful and the data was published in Big Query.<br><br>
+<h4>Test 2: Synchronization Strategies </h4>
+In this test scenario, I validated some Airbyte synchronization strategies, where I changed the strategy model and observed the behavior of the tool.
+<br><br>
+<h4>Test 3: Usability</h4>
+In this test scenario, I analyzed the usability of the tool and observed that it has good usability, with several features that are easy to absorb, it is possible in the usual way to follow the entire journey of the data and the logs for this analysis are easy to understand.<br><br>
+#1 Step
+
+Initial data (raw data)
+
+SQL-Server:
+<img width="1566" alt="image" src="https://user-images.githubusercontent.com/32913011/210253890-918021fd-c4b1-4ecd-832e-92a6786f0043.png">
+
+
+Bigquery:
+<img width="1648" alt="image" src="https://user-images.githubusercontent.com/32913011/210253934-c14b62f4-5694-491f-91f3-325db77bee63.png">
+
+
+#2 Step
+
+In this step I changed the value from "0" to "2" for the "stops" attribute
+<img width="1435" alt="image" src="https://user-images.githubusercontent.com/32913011/210253999-c0ec2b26-4c7f-4d5a-bd02-1904030594b1.png">
+
+
+Sync is running:
+<img width="1660" alt="image" src="https://user-images.githubusercontent.com/32913011/210254023-26207208-be9d-42b6-854f-e54b72eb10a1.png">
+
+
+Sync succeed:
+<img width="1623" alt="image" src="https://user-images.githubusercontent.com/32913011/210254053-7bf6aea5-b1c9-4cf5-b821-58ae4a1bd2f2.png">
+
+
+Change reflected in Bigquery:
+<img width="1671" alt="image" src="https://user-images.githubusercontent.com/32913011/210254081-907b3ee9-b840-4012-9d89-2fc2fff180f9.png">
+
+
 
 
 
